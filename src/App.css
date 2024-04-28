@@ -1,38 +1,1432 @@
-.App {
-  text-align: center;
+body{
+    background-color: #fdfaf2;
+    font-family:Arial;
 }
+/* .roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  } */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.profile-container {
+      display: flex;
+      flex-direction: column;
+      
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
   }
+  
+.profile-header {
+  display: flex;
+  padding: 20px;
+  gap: 20px; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.profile-image {
+  width: 100px; 
+  height: 100px; 
+  border-radius: 50%; 
+}
+
+
+
+.profile-header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 50px; 
+}
+.profile-header-right{
+  flex:1;
+}
+
+.profile-header-right-1{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.profile-header-right-1 h2{
+  margin: 0;
+}
+.profile-header-right-1 button{
+  padding: 8px 20px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer; 
+  /* background-color: #f06f3c;  */
+  font-size: medium;
+}
+.edit-profile-btn{
+  color: rgb(41, 73, 156);
+}
+.edit-profile-btn:hover{
+  background-color: rgb(173, 185, 215);
+}
+
+.edit-complete-button{
+  display: flex;
+  gap: 40px;
+}
+
+.edit-complete-button button{
+  border: 3px solid #813a56;
+  border-radius: 20px;
+  padding: 12px 20px;
+  cursor: pointer; /* Changes cursor to pointer when hovering over the button */
+  background-color: #7db6d4; /* Bootstrap primary button color */
+  font-size: large;
+  color: #813a56;
+  box-shadow: -5px 5px 0px 0px #813a56; /* Add shadow: Horizontal offset, vertical offset, blur radius, spread radius, color */
+
+}
+
+.edit-complete-button button:hover{
+  border: 3px solid #813a56;
+  box-shadow: -4px 4px 0px 0px #813a56; /* Intensify shadow on hover */
+
+}
+
+
+
+.follow {
+  background-color:#e37b58; /* Bootstrap primary color for example */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.following {
+  background-color:#C1DDBD; /* Bootstrap success color for example */
+  color: #745A49;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.verified-icon {
+    width: 22px; 
+    height: 22px; 
+}
+.verified-icon-small{
+  margin-left: -5px;
+  width: 16px; 
+  height: 16px;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.profile-menu{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  border: 1px solid #ccc;
+  background: transparent;
+  border-radius: 2%;
+  margin-top: 10px;
+}
+.additional-profile-info{
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+    
+    
+}
+
+.additional-row{
+  display: flex;
+  justify-content: space-evenly;
+  border: 2px solid #ffcf66;
+  border-radius: 5px;
+  background-color: #ffe3a0;
+
+  
+}
+
+.additional-row p {
+  border-right: 2px solid #f6c04b;;
+  flex: 1; /* Each p tag takes up equal space */
+  padding: 5px 20px; /* Padding around the text */
+   /* border: 1px solid #ccc;  */
+}
+
+
+.menu-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+}
+.menu-item:hover{
+  background-color: rgb(255, 248, 186);
+}
+
+.active-menu-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+  background-color: rgb(252, 230, 152);
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.active-menu {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.active-menu img{
+  width: 20px;
+  height: auto;
+}
+
+.inactive-menu{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.menu-item img{
+  width: 20px;
+  height: auto;
+}
+
+.profile-stats div {
+    text-align: center;
+}
+
+.profile-container {
+  max-width: 50vw;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.save-button{
+  background-color: transparent;
+  border: none;
+}
+.save-button-img{
+  width:20px;
+  height:20px;
+
+}
+
+.posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates three columns */
+    gap: 20px; /* Space between posts */
+    margin: 0 auto; /* Centering the grid if needed */
+    max-width: 1200px; /* Adjust this value based on your design needs */
+    padding: 20px; /* Padding around the grid */
   }
-  to {
-    transform: rotate(360deg);
+  
+  .posts > div {
+    border: 1px solid #ccc; /* Optional: Adds a border to each post */
+    border-radius: 10px; /* Optional: Rounds the corners of each post */
+    overflow: hidden; /* Ensures content does not overflow the div boundaries */
+    aspect-ratio: 1 / 1;
   }
+  
+  .posts img {
+    width: 100%; /* Makes images responsive */
+    height: 100%; /* Keeps the aspect ratio of the images */
+    object-fit: cover; /* Optional: Adjusts the images' fit within their divs */
+  }
+
+  /* .edit-profile-form {
+    margin-top: 80px;
+    background-color:#C1DDBD ;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px; 
+    margin: 0 auto; 
+  }
+
+  .edit-profile-form input{
+    border: 3px solid #fe7600;
+    font-size: large;
+    color: #ec6e00;
+    background-color:transparent;
+    width: 300px;
+    padding: 15px 15px;
+    border-radius: 15px;
+  } */
+
+  .edit-outer-form {
+    background-color: #fee5ab;
+    padding:50px;
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;  /* Centers children horizontally in the container */
+    align-items: center;      /* Centers children vertically in the container */
+    flex-direction: column;
+    gap: 40px;
+    width: 50vw;
+    height: auto;             /* Set the height of the form */
+    margin: auto;             /* Auto margins for horizontal centering */
+}
+
+  
+  .edit-profile-form {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr; /* Default to one column */
+    grid-gap: 25px; /* Space between fields */
+    margin-left: 110px;
+}
+
+.two-columns {
+  margin-left: 25px;
+  width: 100%;
+  grid-template-columns: 1fr 1fr; /* Two columns when checkbox is checked */
+}
+.edit-profile-form input, .two-columns input{
+  border: 3px solid #fe7600;
+  font-size: large;
+  color: #ec6e00;
+  background-color:transparent;
+  width: 80%;
+  padding: 15px 15px;
+  border-radius: 15px;
+}
+.edit-profile-form textarea, .two-columns textarea {
+  height: 150px;
+  border: 3px solid #fe7600;
+  font-size: large;
+  width: 80%;
+  color: #ec6e00;
+  background-color:transparent;
+  padding: 10px 15px;
+  border-radius: 15px;
+}
+.edit-outer-form label, .two-columns label{
+  padding: 10px;
+  
+
+}
+.profile-image-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:center ;
+  align-items: center;
+}
+.textarea-container {
+  position: relative;
+  padding-top: 20px; /* Room for the label to move up */
+}
+
+.two-columns .textarea-container textarea{
+  width: 80%;
+  height: 25px; /* Set the height of your textarea */
+  /* padding: 8px; */
+  padding-top: 40px; /* Make room for the label */
+  border: 2px solid #fe7600;
+  resize: none; 
+}
+
+.edit-profile-form textarea{
+  width: 80%;
+  height: 100px; /* Set the height of your textarea */
+  /* padding: 8px; */
+  padding-top: 40px; /* Make room for the label */
+  border: 2px solid #fe7600;
+  resize: none; /* Optional: Prevent resizing */
+}
+.textarea-container input{
+  width: 80%;
+  /* padding: 8px; */
+  padding-top: 40px; /* Make room for the label */
+  border: 2px solid #fe7600;
+  resize: none; /* Optional: Prevent resizing */
+}
+
+.textarea-container label {
+  position: absolute;
+  top: 0;
+  left: 8px;
+  color: #666;
+  pointer-events: none; /* Allows click to pass through to the textarea */
+  transition: all 0.3s ease; /* Smooth transition */
+  transform-origin: left top;
+  transform: translate(0, 20px); /* Initial position, over the textarea */
+  font-size: 16px;
+}
+
+
+
+
+.profile-image-container img {
+    /* width: 100px;
+    height: 100px; */
+    cursor: pointer; /* Existing style */
+}
+
+.edit-buttons {
+    display: flex;
+    justify-content: space-between; 
+    padding: 10px 0; 
+}
+
+.edit-buttons button {
+    flex: 1; 
+    margin-right: 20px; 
+}
+
+
+
+  .edit-profile-form img{
+    display: block; /* Ensure the image is a block element */
+    margin: 0 auto 10px; /* Center the image and add space below */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Optional: Makes the image circular */
+  }
+  
+label {
+    margin-bottom: 20px; /* Adds space between each label */
+  }
+
+
+
+/* input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%; 
+    padding: 8px;
+    border: 1px solid #ccc; 
+    border-radius: 
+} */
+
+input[type="submit"] {
+    background-color: #007bff; /* Example: A blue background */
+    color: #fdfaf2;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker shade of blue for hover effect */
+  }
+
+
+  /* Header.js styling */
+
+  .nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 2px;
+    background: #fdfaf2;
+    border: 1px solid #ccc; /* Add a border around the entire nav container */
+  }
+  
+.nav-item {
+    position: relative;
+    flex: 1; /* This makes each nav-item take equal width */
+    display: flex; /* Makes content of nav-item use flexbox layout */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    border-right: 1px solid #ccc; /* Adds a border to the right of each nav-item */
+    padding: 10px 0; /* Add some vertical padding */
+    transition: background-color 0.3s ease;
+}
+.public-nav {
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+  background: #fdfaf2;
+  border: 1px solid #ccc; /* Add a border around the entire nav container */
+}
+
+.public-nav-item {
+  font-weight: lighter;
+  font-size: larger;
+  position: relative;
+  flex: 1; /* This makes each nav-item take equal width */
+  display: flex; /* Makes content of nav-item use flexbox layout */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  border-right: 1px solid #ccc; /* Adds a border to the right of each nav-item */
+  padding: 20px 0; /* Add some vertical padding */
+  transition: background-color 0.3s ease;
+}
+
+.nav-item:hover{
+  background-color: #EAD8C0;
+}
+.dropdown-content {
+  cursor: pointer;
+  border-radius: 15px;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  padding: 12px 0;
+  width: 100%; /* Make dropdown full width of the nav-item */
+  top: 100%; /* Position just below the nav-item */
+  left: 0;
+  z-index: 1;
+}
+
+.nav-item:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  border-radius: 5px;
+  color: black;
+  padding: 16px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* 
+.nav-item:hover{
+    background-color: #D1BB9E;
+} */
+
+
+.nav-item:last-child {
+  border-right: none; /* Removes the border from the last nav-item */
+}
+
+.nav-item button {
+  background: none; /* Removes button background */
+  border: none; /* Removes button border */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  padding: 0; /* Removes button padding */
+}
+
+.nav-item button img {
+  width: 24px;
+  height: 24px;
+}
+  
+
+/* single post styling for interaction */
+.display-image img{
+    height: 35vw;
+    width: 35vw;
+    display: 'block';
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 2%;
+    /* objectFit: 'cover'; */
+}
+
+
+.interaction {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #ccc;
+    background: transparent;
+    border-radius: 2%;
+    margin-top: 10px; /* Space between the image and interaction bar */
+  }
+  
+  .interaction-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    border-right: 1px solid #ccc;
+  }
+  .interaction-item-verify {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 80px;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    border-right: 1px solid #ccc;
+  }
+  .interaction-item-verify:hover{
+    background-color: #f0f0f0;
+  }
+  .interaction-item-verify img{
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .interaction-item button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .interaction-item:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+  }
+  
+  .interaction-item img, .interaction-item-verify img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .posts-list-item{
+    margin-bottom: 40px;
+    }
+
+  .post-item-header{
+    display: flex;
+    align-content: center;
+  }
+
+  .post-item-header-name{
+    margin: 0;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  .post-item-header-date{
+    font-weight: normal;
+    opacity: 0.4;
+  }
+
+  .post-item-header-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .post-item-verified-stats{
+    font-weight: normal;
+    padding-right: 5px;
+    margin-left: auto;
+  }
+
+
+  /* posts layout styling for Post.js */
+ 
+  .posts-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .edit-buttons button{
+    border-radius: 20px; 
+  }
+
+  .comment-form textarea{
+    border-radius: 3px;
+    background-color: transparent ;
+    border: 1px solid #ccc;
+  }
+  .comment-form textarea:hover{
+    background-color: #ffe1d1 ;
+    border: 1px solid #ccc;
+  }
+  .comment-submit-button{
+    border-radius: 10px; 
+    background-color: transparent;
+  }
+  .comment-submit-button:hover{
+    border-radius: 20px; 
+    background-color: transparent;
+    background-color: #ffe1d1 ;
+  }
+  .comment-item{
+    padding: 3px;
+    margin-top: 15px;
+  }
+  .comment-item .comment-profile-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    margin-right: 10px; 
+    align-self: start;
+    cursor:pointer;
+  }
+
+  
+
+  .reply-comment{
+    margin-top:5px;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color:#666;
+  }
+  .show-reply-comment{
+    margin-top: 10px;
+    cursor: pointer;
+    font-size:0.8rem;
+    color: #666;
+  }
+  
+  .login-form-container, .register-form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Full viewport height to center vertically */
+  }
+
+  .error-message{
+    color: #813a56;
+  }
+  
+  .form-inner, .register-form-inner{
+    background-color: rgb(255, 221, 149);
+    outline: none;
+    border: 2px solid #fe7600;
+    padding: 40px;
+    /* border: 3px solid #813a56; */
+    border-radius: 10px; /* Optional: for rounded corners */
+    /* background-color: #ebe1d8;  */
+    display: flex;
+    flex-direction: column;
+    width: 500px; /* Or whatever width you prefer */
+  }
+
+  
+  .login-form-container form, .register-form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; 
+  }
+  .login-form-container, .register-form-container h2{
+    color:#fe7600;
+  }
+  .login-form-container input, .register-form-container input {
+    border: 3px solid #fe7600;
+    font-size: large;
+    color: #ec6e00;
+    background-color:transparent;
+    width: 300px;
+    padding: 15px 15px;
+    border-radius: 15px;
+  }
+  .login-form-container input::placeholder, input::placeholder {
+    color: #fe7600;
+    }
+  .login-form-container input:hover, .register-form-container input:hover {
+  background-color: rgb(249, 228, 183);
+  }
+  .login-form-container button, .register-form-container button {
+    border: 3px solid #813a56;
+    border-radius: 20px;
+    padding: 18px 40px;
+    cursor: pointer; /* Changes cursor to pointer when hovering over the button */
+    background-color: #7db6d4; /* Bootstrap primary button color */
+    font-size: large;
+    color: #813a56;
+    box-shadow: -5px 5px 0px 0px #813a56; /* Add shadow: Horizontal offset, vertical offset, blur radius, spread radius, color */
+  
+  }
+
+  .login-form-container button:hover, .register-form-container button:hover{
+    border: 3px solid #813a56;
+    box-shadow: -4px 4px 0px 0px #813a56; /* Intensify shadow on hover */
+  
+  }
+  
+  .inquiry-footer {
+    color: #813a56;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px; /* Adjust the space between the items */
+  }
+
+  .inquiry-link {
+
+    cursor: pointer;
+    display: block; /* Ensure the link is treated as a block element for styling */
+    text-decoration: underline; /* Optional: Removes underline from link */
+    color: #813a56; /* Optional: Changes the link color */
+  }
+
+  .upload-post-container {
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center everything horizontally */
+    padding: 0;
+  }
+
+  .upload-listing-container {
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center everything horizontally */
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    .upload-post-container {
+      flex-direction: column; /* Stack children vertically */
+      align-items: center; /* Center align items for a vertical layout */
+    }
+  
+    .drop-zone, .upload-form-right {
+      width: 100%; /* Optional: Adjust width to fill the container */
+      max-width: 410px; /* Adjust based on your design */
+    }
+  }
+  @media (max-width: 768px) {
+    .upload-listing-container {
+      flex-direction: column; /* Stack children vertically */
+      align-items: center; /* Center align items for a vertical layout */
+    }
+  
+    .drop-zone, .upload-listing-right {
+      width: 100%; /* Optional: Adjust width to fill the container */
+      max-width: 410px; /* Adjust based on your design */
+    }
+  }
+
+  .page-title{
+    color: dimgrey;
+    text-align: center;
+  }
+  
+  .upload-post-form {
+    padding: 8vh 10vh;
+    width: 60vw;
+    background-color: #fee5ab;
+    display: flex; /* Use flexbox to lay out children */
+    gap: 20px; /* Add some space between the drop zone and the form */
+  }
+
+  
+  
+  .drop-zone {
+    width: 400px; /* Set a fixed width */
+    height: 400px; /* Set a fixed height */
+    border: 2px dashed #ccc; /* Dashed border for the drop zone */
+    display: flex;
+    border-radius: 20px;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+    position: relative; /* Needed for absolute positioning of the image inside */
+  }
+  
+  .drop-zone img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Ensure the image covers the drop zone */
+    position: absolute; /* Position image to cover the drop zone area */
+  }
+  
+  .upload-form-right {
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  .upload-form-right textarea {
+    border-radius: 20px;
+    border: 2px solid #f888e7;
+    background-color:  #fbeed0;
+    padding: 10px;
+    margin-bottom: 10px; /* Add some space below */
+    overflow-y: auto; /* Show scrollbar when content overflows vertically */
+    max-height: 380px;
+  }
+  .upload-form-right input{
+    border-radius: 20px;
+    border: 2px solid #f888e7;
+    background-color:  #fbeed0;
+    padding: 10px;
+    margin-bottom: 10px; /* Add some space below */
+  }
+  .upload-form-right textarea:hover {
+  background-color:  #fbeed0;
+  }
+  .form-buttons {
+    display: flex;
+    /* justify-content: space-between; Space out buttons */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    gap: 20px;
+    
+  }
+
+  .upload-listing-form{
+    padding: 5vh;
+    width: 80vw;
+    height: vh;
+    background-color: #fee5ab;
+    display: flex; /* Use flexbox to lay out children */
+    gap: 80px;
+  }
+
+  .upload-listing-right{
+    display: flex;
+    width: 60%;
+    flex-direction: column; /* Arrange items vertically */
+  }
+
+  .listing-title{
+    width: 100%; 
+    padding: 8px;
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+    height: 30px;
+    background-color:#fbeed0;
+    font-size: medium;
+    margin-bottom: 15px;
+  }
+  .listing-desc{
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%; 
+    padding: 8px;
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+    height: 90px;
+    width: 100%;
+    background-color:#fbeed0;
+    margin-bottom: 15px;
+    
+  }
+  .location-search-input{
+    width: 100%; 
+    padding: 8px;
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+    height: 30px;
+    width: 100%;
+    background-color:#fbeed0;
+    margin-bottom: 15px;
+  }
+  .listing-opt{
+    margin-top: 15px;
+    flex-direction: row;
+    flex-basis: calc(33.333% - 10px);
+    display: flex;
+    justify-content:space-between;
+  }
+
+  .listing-price{
+    width: 150px; 
+    padding: 8px;
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+    background-color:#fbeed0;  }
+  .listing-status{
+    width: 150px;
+    padding: 8px;
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+    background-color:#fbeed0;  }
+  .listing-cond{
+    width: 150px; 
+    padding: 8px;
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+    background-color:#fbeed0;  }
+
+  .listing-location{
+    position: relative;
+
+  }
+  .autocomplete-dropdown-container{
+    margin-top: 0;
+    position: absolute;
+    width:100%;
+  }
+
+  .suggestion-item {
+    padding: 5px;
+    background-color: #fbeed0;
+    cursor: pointer;
+  }
+  
+  .suggestion-item--active {
+    padding: 5px;
+    background-color: #fafafa;
+    cursor: pointer;
+  }
+
+  .overlay-stats-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.7);
+    z-index: 1000;
+  }
+
+  .overlay-offer-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.8);
+    z-index: 1000;
+  }
+
+  .stats-modal{
+    position: fixed;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 350px;
+    height: 350px;
+    padding: 30px;
+    z-index: 1000;
+    
+  }
+
+  .offer-modal{
+      position: fixed;
+      top: 50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      width: 350px;
+      height: 350px;
+      padding: 30px;
+      z-index: 1000;
+
+  }
+  .close-button-modal{
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 24px; 
+  }
+
+
+  .modal-stats-item{
+    display: flex;
+    align-content: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 0.5px solid rgb(214, 214, 214);
+    overflow: scroll;
+  }
+
+  .modal-stats-name{
+    margin: 0;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: medium;
+  }
+
+  .modal-stats-img{
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    margin: 0 auto; 
+    max-width: 90vw; 
+    padding: 0px; 
+    padding-right: 20px;
+  }
+  
+  .items .item-image{
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    aspect-ratio: 1 / 1;
+  }
+
+  .item-desc{
+    display: flex;
+    gap:5px;
+    justify-content: start;
+  }
+  .item-desc-inner{
+    padding: 5px;
+    flex-direction: column;
+  }
+
+  .item-desc-inner p{
+    padding:0;
+    margin: 0;
+    margin-top: 8px;
+  
+  }
+  
+  .items img {
+    width: 100%; 
+    height: 100%; 
+    object-fit:scale-down; 
+  }
+  
+
+  .overlay-display-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.7);
+    z-index: 1000;
+  }
+
+  .display-modal{
+    position: fixed;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 85%;
+    height: 85%;
+    padding: 30px;
+    z-index: 1000;
+    
+  }
+  .display-listing-form{
+    padding: 5vh;
+    /* padding-top: 10vh; */
+    width: 80vw;
+    height: 75vh;
+    background-color: #fee5ab;
+    display: flex; /* Use flexbox to lay out children */
+    gap: 80px;
+  }
+
+  .display-item-modal{
+    flex:1
+  }
+
+  .diplay-image-modal img{
+    /* width: 200px;
+    height:200px; */
+    border-radius: 20px;
+    border: 5px solid black;
+  }
+
+
+
+  .post-modal-container {
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center everything horizontally */
+    padding: 0;
+  }
+  .post-modal-form {
+    /* padding: 10vh; */
+    height: 85vh;
+    width: 85vw;
+    background-color: #fee5ab;
+    display: flex; /* Use flexbox to lay out children */
+    gap: 80px; /* Add some space between the drop zone and the form */
+  }
+
+  .post-modal-drop-zone {
+    padding: 20px;
+    width: 50%; 
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .post-modal-drop-zone img {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* position: absolute; */
+  }
+  
+  .post-modal-right {
+    width:40vw;
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+     /* Take the rest of the space */
+  }
+
+  .display-post-comment-modal{
+    height: 62vh;
+    overflow: auto;
+  }
+
+  .display-post-author_modal img{
+    width: 30px;
+    height:30px;
+
+  }
+
+  .modal-author-desc{
+    padding-bottom: 10px;
+    display: flex;
+    gap:10px;
+    padding-top: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    margin-bottom: 5px;
+  }
+
+  .modal-comment-form textarea{
+    border:1px solid rgba(157,173,178,.5);
+    border-radius: 20px;
+    flex-grow: 1;
+    resize: none;
+    overflow: auto;
+    max-height: 50px;
+    min-height: 40px;
+    line-height: 18px;
+    margin-right: 10px; 
+    margin-bottom: 20px;
+    background-color:  #fbeed0;
+    padding: 10px;
+  }
+
+  .modal-comment-submit-button{
+    background-color:#ffcb7c ;
+    border:2px solid #ffb23d ;
+    border-radius: 12px;
+    
+  }
+
+  comment-desc{
+    width:auto;
+    display: flex;
+  }
+
+  .options-button{
+    margin-left: auto;
+    margin-right: 10px;
+    
+}
+
+.opt-button{
+    background-color: transparent;
+    border: none;
+    font-size: x-large;
+    color:#666; 
+}
+.options-dropdown-menu { 
+  font-size:medium;
+  position: absolute; /* This positions the dropdown relative to its nearest positioned ancestor */
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding: 5px;
+  width: px; 
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+.options-dropdown-menu-item { 
+  font-size:medium;
+  position: absolute; /* This positions the dropdown relative to its nearest positioned ancestor */
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 150px;
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+.options-dropdown-menu-item button {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+
+
+.options-dropdown-menu button {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.options-dropdown-menu button:hover, .options-dropdown-menu-item button:hover{
+  color: #5a4c4c;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 20vh; 
+  margin: 0;
+  padding: 0;
+}
+.searchBar {
+  color: black;
+  width: 500px; /* Fixed width, adjust as needed */
+  transition: all 0.3s ease;
+  height: 3rem;
+  background-color: #ffe3a0;
+  outline: none;
+  border: 2px solid #fe7600;
+  border-radius: 1.625rem;
+  padding: 0 3.5rem 0 1.5rem;
+  font-size: 1rem;
+}
+.searchBar::placeholder{
+  color: #fe7600;
+  font-size:large;
+}
+.searchBar:hover{
+  background-color: #fce5af;
+  
+}
+
+.submit-search {
+  border: 3px solid #813a56;
+    border-radius: 1.625rem;
+    padding: 12px 20px;
+    cursor: pointer; 
+    background-color: #7db6d4;
+    font-size: large;
+    color: #813a56;
+    box-shadow: -5px 5px 0px 0px #813a56; 
+  
+}
+.submit-search:hover{
+  box-shadow: -5.5px 5px 0px 0px #813a56; 
+}
+
+.search-output-items{
+  display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    margin: 0 auto; 
+    max-width: 70vw; 
+    padding: 0px; 
+    padding-right: 20px;
+}
+
+.search-output-items img{
+  border: 1px solid #ccc; 
+  border-radius: 10px; 
+  overflow: hidden; 
+  width: 20vw;
+  aspect-ratio: 1 / 1;
+}
+
+.search-output-posts {
+  background-color: #fff4d6;
+  border: 1px solid #ccc;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  margin: 0 auto;
+  gap: 30px;
+  max-width: 80vw; 
+  
+}
+
+.post-item {
+  background-color: #fffcf5;
+  display: flex;
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.post-item:hover {
+  border:2px solid #fe7600;
+}
+
+.post-item img {
+  margin-right: 20px;
+  width: 200px;
+  height: 200px;
+  border-radius:10px;
+}
+
+.post-content {
+  flex: 1;
+}
+
+.post-title {
+  font-size: larger;
+  margin-top: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.content-toggle-button{
+  color: #646161;
+  margin-left: 5px;
+  font-size: small;
+}
+
+.search-display-stats{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  flex-direction: row;
+}
+
+.search-display-stats-inner{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  /* style={{display:'flex', flexDirection:'row', gap: '10px',  alignItems: 'center'}} */
+}
+
+.search-display-stats img{
+  width: 20px;
+  height: 20px;
+
+}
+
+.no-result{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  border: 1px solid red;
+}
+.no-result-button {
+  border: 3px solid #813a56;
+    border-radius: 1.625rem;
+    padding: 12px 20px;
+    cursor: pointer; 
+    background-color: #7db6d4;
+    font-size: large;
+    color: #813a56;
+    box-shadow: -5px 5px 0px 0px #813a56; 
+  
 }
